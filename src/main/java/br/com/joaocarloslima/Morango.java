@@ -33,5 +33,5 @@ public class Morango {
         return false;
     }
 
-    public String getImagem(){return "images/cenoura" + tamanho + ".png";}
+    public String getImagem(){return "images/morango" + tamanho + ".png";}
 }
