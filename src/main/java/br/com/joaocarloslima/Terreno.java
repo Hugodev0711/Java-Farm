@@ -17,18 +17,12 @@ public class Terreno {
     public int getX() {
         return x;
     }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
-
-    public void setY(int y) {
-        this.y = y;
-    }
+    public Batata getBatata() {return batata;}
+    public Cenoura getCenoura() {return cenoura;}
+    public Morango getMorango() {return morango;}
 
     public void plantar(Batata batata) {
         if(!estaOcupado()) {
@@ -62,14 +56,17 @@ public class Terreno {
     }
 
     public void colher(Celeiro celeiro) {
-        if(batata.podeColher() && !celeiro.celeiroCheio()) {
+        if(batata != null && batata.podeColher() && !celeiro.celeiroCheio()) {
             celeiro.armazenarBatata();
+            batata = null;
         }
-        else if (morango.podeColher() && celeiro.celeiroCheio()) {
+        else if (morango != null && morango.podeColher() && !celeiro.celeiroCheio()) {
             celeiro.armazenarMorango();
+            morango = null;
         }
-        else if (cenoura.podeColher() && celeiro.celeiroCheio()) {
+        else if (cenoura != null && cenoura.podeColher() && !celeiro.celeiroCheio()) {
             celeiro.armazenarCenoura();
+            cenoura = null;
         }
     }
 }

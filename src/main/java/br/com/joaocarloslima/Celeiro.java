@@ -38,18 +38,18 @@ public class Celeiro {
 
     public void consumirBatata(){
         if(!(qtdeBatatas == 0)){
-            qtdeBatatas =- 1;
+            qtdeBatatas -= 1;
         }
     }
 
     public void consumirCenoura(){
         if(!(qtdeCenouras == 0)){
-            qtdeCenouras =- 1;
+            qtdeCenouras -= 1;
         }
     }
     public void consumirMorango(){
         if(!(qtdeMorangos == 0)){
-            qtdeMorangos =- 1;
+            qtdeMorangos -= 1;
         }
     }
 
@@ -58,10 +58,9 @@ public class Celeiro {
         return armazenado - capacidade;
     }
 
-    public int getOcupacao(){
+    public double getOcupacao(){
         int armazenado = qtdeBatatas + qtdeMorangos + qtdeCenouras;
-        double porcentagemD = (armazenado - capacidade)/(0.15 * 100);
-        int porcentagem = (int)porcentagemD;
+        double porcentagem = ((double) armazenado/capacidade)*100;
         return porcentagem;
     }
 
