@@ -61,22 +61,15 @@ public class Terreno {
         return batata != null || cenoura != null || morango != null;
     }
 
-    public void colherBatata(Celeiro celeiro) {
+    public void colher(Celeiro celeiro) {
         if(batata.podeColher() && !celeiro.celeiroCheio()) {
             celeiro.armazenarBatata();
         }
-    }
-
-    public void colherCenoura(Celeiro celeiro) {
-        if(cenoura.podeColher() && !celeiro.celeiroCheio()) {
+        else if (morango.podeColher() && celeiro.celeiroCheio()) {
+            celeiro.armazenarMorango();
+        }
+        else if (cenoura.podeColher() && celeiro.celeiroCheio()) {
             celeiro.armazenarCenoura();
         }
     }
-
-    public void colherMorango(Celeiro celeiro) {
-        if(morango.podeColher() && !celeiro.celeiroCheio()) {
-            celeiro.armazenarMorango();
-        }
-    }
-
 }
